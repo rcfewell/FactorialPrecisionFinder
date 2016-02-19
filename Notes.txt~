@@ -1,0 +1,50 @@
+start with a numbeer
+      12348596241
+Make a linked list with each index containing one of these 11 digits.
+     start from the end of the number and put the the numbers into the list backwards
+     	   N->1->4->2....->1
+
+create a struct containing key and next
+
+struct Node{
+       int key;
+       Node* next;
+}
+							Side Notes
+void increment (Node* num){
+// increments num as a side effect.				Numbers do not have leading 0's
+   	      	       	    					NULL list == 0
+	if (!num)
+		num = new Node(1);
+	else if (num->key < 9) 
+		num->key++;					Node (int k)
+	else							{
+		num->ky = 0;						if (k > 9)
+		increment(num->next)						   cout << unacceptable;
+								else
+									key = k;
+									next = null;
+
+
+Node* add (Node* a, Node* b, int carry){
+      Node* c;
+      if(a == NULL)
+      	   if(carry == 0)
+	   	    copy(b, c); return c;
+	   else
+	            copy(b, c);
+		    increment(c); return c;		       
+      else if(b == NULL)
+      	   //similar code
+      	   if(carry == 0)
+	   	    copy(a, c); return c;
+	   else
+	            copy(a, c);
+		    increment(c); return c;
+
+      else
+	   int temp = a->key + b->key + carry; 	
+	   c = new Node((temp) % 10);
+	   int newCarry = ((temp) / 10);
+	   c->next = add(a->next, b->next, NewCarry);
+	   return c;
